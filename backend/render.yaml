@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: farmdirect-backend
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "5000"
+      - key: UPLOAD_DIR
+        value: uploads
+      - key: MAX_FILE_SIZE
+        value: "5242880"
+      - key: COMMISSION_RATE
+        value: "5"
